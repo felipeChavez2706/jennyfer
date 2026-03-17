@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juego de Sonidos - Animales</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+
+    /* FONDO DE GRANJA */
+    background: url("granja.png") no-repeat center center fixed;
+    background-size: cover;
+
+    color: white;
+    text-align: center;
+}
+
+/* CAPA OSCURA PARA RESALTAR */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: -1;
+}
+
+/* HEADER */
+header {
+    padding: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* CONTENEDOR */
+.game {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 25px;
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* TARJETAS */
+.card {
+    background: linear-gradient(145deg, #ffffff, #dfe6f0);
+    border-radius: 20px;
+    box-shadow: 0 10px 0 #b0b8c5;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.15s ease;
+    position: relative;
+}
+
+/* EFECTO HOVER */
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* EFECTO PRESIONADO */
+.card:active {
+    transform: translateY(10px);
+    box-shadow: 0 2px 0 #999;
+}
+
+/* IMAGEN */
+.card img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+}
+
+/* TEXTO */
+.card p {
+    margin: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* EFECTO BRILLO */
+.card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255,255,255,0.4);
+    transform: skewX(-25deg);
+    transition: 0.5s;
+}
+
+.card:hover::after {
+    left: 125%;
+}
+
+/* FOOTER */
+footer {
+    margin-top: 20px;
+    font-size: 14px;
+}
+</style>
+
+</head>
+<body>
+
+<header>🎮 Juego de Sonidos de Animales</header>
+
+<div class="game">
+
+<div class="card" onclick="playSound('vaca')">
+    <audio id="perro" src="perro2.mp3"></audio>
+    <img src="https://cdn-icons-png.flaticon.com/512/1998/1998610.png">
+    <p>Vaca</p>
+    <p>Waca</p>
+</div>
+
+<div class="card" onclick="playSound('gallina')">
+    <img src="https://cdn-icons-png.flaticon.com/512/3069/3069172.png">
+    <p>Gallina</p>
+</div>
+
+<div class="card" onclick="playSound('oveja')">
+    <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png">
+    <p>Oveja</p>
+</div>
+
+<div class="card" onclick="playSound('perro')">
+    <img src="https://cdn-icons-png.flaticon.com/512/616/616430.png">
+    <p>Perro</p>
+</div>
+
+<div class="card" onclick="playSound('gato')">
+    <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png">
+    <p>Gato</p>
+</div>
+
+<div class="card" onclick="playSound('pato')">
+    <img src="https://cdn-icons-png.flaticon.com/512/1998/1998672.png">
+    <p>Pato</p>
+</div>
+
+<div class="card" onclick="playSound('cerdo')">
+    <img src="https://cdn-icons-png.flaticon.com/512/1998/1998672.png">
+    <p>Pato</p>
+</div>
+
+<div class="card" onclick="playSound('pollitos')">
+    <img src="https://cdn-icons-png.flaticon.com/512/1998/1998672.png">
+    <p>Pato</p>
+</div>
+
+</div>
+
+<!-- SONIDOS -->
+
+<audio id="vaca" src="https://www.soundjay.com/animal/cow-moo1.mp3"></audio> <audio id="gallina" src="https://www.soundjay.com/animal/chicken-cluck-1.mp3"></audio> <audio id="oveja" src="https://www.soundjay.com/animal/sheep-bleat1.mp3"></audio> <audio id="perro" src="https://www.soundjay.com/animal/dog-bark1.mp3"></audio> <audio id="gato" src="https://www.soundjay.com/animal/cat-meow-1.mp3"></audio> <audio id="pato" src="https://www.soundjay.com/animal/duck-quack-1.mp3"></audio>
+
+<script>
+function playSound(id) {
+    const audio = document.getElementById(id);
+    audio.currentTime = 0;
+    audio.play();
+}
+</script>
+
+<footer>Haz clic en las tarjetas para escuchar los sonidos 🐾</footer>
+
+</body>
+</html>
